@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+   
+   
+    <style>
+        /* Styling to high-level elements like body and anchor tags applied here */
+        * {
+            font-family: "Poppins", sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #9cb983;
+            /* Slightly darker background */
+        }
+
+        .container {
+            position: relative;
+            width: 256px;
+            height: 256px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container span {
+            position: absolute;
+            left: 0;
+            width: 32px;
+            height: 6px;
+            background: #f0cf9e;
+            /* Darker orange tone */
+            border-radius: 8px;
+            transform-origin: 128px;
+            transform: scale(2.2) rotate(calc(var(--i) * (360deg / 50)));
+            animation: animateBlink 3s linear infinite;
+            animation-delay: calc(var(--i) * (3s / 50));
+        }
+
+        @keyframes animateBlink {
+            0% {
+                background: #FF8500;
+                /* Slightly lighter orange tone for animation */
+            }
+
+            50% {
+                background: #f0cf9e;
+            }
+        }
+
+        .login-box {
+            position: absolute;
+            width: 380px;
+            /* Darker gray background */
+            padding: 20px;
+            border-radius: 10px;
+
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #f0cf9e;
+            /* Orange tone for headings */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            position: relative;
+            margin: 25px 0;
+
+        }
+
+        .input-box input {
+            width: 100%;
+            height: 50px;
+            background: #444444;
+            /* Darker gray input background */
+            border: 2px solid #f0cf9e;
+            outline: none;
+            border-radius: 40px;
+            font-size: 1em;
+            color: #ffffff;
+            padding: 0 20px;
+            transition: .5s ease;
+
+        }
+
+        .input-box input:focus,
+        .input-box input:valid {
+            border-color: #f0cf9e;
+        }
+
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 1em;
+            color: #ffffff;
+            pointer-events: none;
+            transition: .5s ease;
+            font-weight: 500;
+        }
+
+        .input-box input:focus~label,
+        .input-box input:valid~label {
+            top: 1px;
+            font-size: .8em;
+            background: #252525;
+            /* Darker gray label background */
+            padding: 0 6px;
+            color: #FF8500;
+        }
+
+        .btn {
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            height: 45px;
+            background: #f0cf9e;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1em;
+            color: #333333;
+            font-weight: 700;
+            margin-top: 55px;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
+        .signup-link {
+            margin: 20px 0 10px;
+            text-align: center;
+        }
+
+        .signup-link a {
+            font-size: 1em;
+            color: #252525;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+ 
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <div class="input-box">
+                <input id="user-email" type="email" required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <input id="user-password" type="password" required>
+                <label>Password</label>
+            </div>
+            <button type="submit" class="btn" onclick="loginUser()">Login</button>
+                <div class="signup-link">
+                    <a href="signup.html">Signup</a>
+                </div>
+            </form>
+        </div>
+        <span style="--i:0;"></span>
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:4;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:8;"></span>
+        <span style="--i:9;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:12;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:19;"></span>
+        <span style="--i:20;"></span>
+        <span style="--i:21;"></span>
+        <span style="--i:22;"></span>
+        <span style="--i:23;"></span>
+        <span style="--i:24;"></span>
+        <span style="--i:25;"></span>
+        <span style="--i:26;"></span>
+        <span style="--i:27;"></span>
+        <span style="--i:28;"></span>
+        <span style="--i:29;"></span>
+        <span style="--i:30;"></span>
+        <span style="--i:31;"></span>
+        <span style="--i:32;"></span>
+        <span style="--i:33;"></span>
+        <span style="--i:34;"></span>
+        <span style="--i:35;"></span>
+        <span style="--i:36;"></span>
+        <span style="--i:37;"></span>
+        <span style="--i:38;"></span>
+        <span style="--i:39;"></span>
+        <span style="--i:40;"></span>
+        <span style="--i:41;"></span>
+        <span style="--i:42;"></span>
+        <span style="--i:43;"></span>
+        <span style="--i:44;"></span>
+        <span style="--i:45;"></span>
+        <span style="--i:46;"></span>
+        <span style="--i:47;"></span>
+        <span style="--i:48;"></span>
+        <span style="--i:49;"></span>
+    </div>
+</body>
+<script>
+    async function loginUser() {
+      const email = document.getElementById('user-email').value;
+      const password = document.getElementById('user-password').value;
+    
+      const userData = { email, password };
+    
+      try {
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        });
+    
+        if (!response.ok) {
+          throw new Error('Login failed');
+        }
+    
+        const data = await response.json();
+        console.log('User logged in successfully:', data);
+        location.href = 'home.html';
+      } catch (error) {
+        console.error('Error during login:', error);
+        
+      }
+    }
+    </script>
+
+</html>

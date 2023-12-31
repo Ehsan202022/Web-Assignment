@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./adminDashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+</head>
+
+<body>
+    <div class="left">
+        <div class="infogrp">
+            <img src="./images/profile.png" alt="" class="dp">
+            <p class="name">Ehsanul Haque</p>
+            <p class="number">ehsanulhaque@gmail.com</p>
+        </div>
+        <div class="optiongrp">
+            <ul style="list-style: none;" id="optionList">
+                <li><a class="op1" href="#div1">Dashboard</a></li>
+                
+                <li><a class="op3" href="#div3">Create Task</a></li>
+                <li><a class="op4" href="#div4">Task Details</a></li>
+            </ul>
+        </div>
+        <div class="logout">
+            <p>Log Out</p>
+            <img src="./images/logout.png" alt="">
+        </div>
+    </div>
+
+
+    <div class="right">
+        <div id="div1">
+            <div class="stat">
+                <div class="wrap1">
+                    <div class="card">
+                        <h2>Pending Tasks</h2>
+                        <h2 class="cguest">3</h2>
+                    </div>
+                    <div class="card">
+                        <h2>Total Tasks</h2>
+                        <h2 class="tguest">10</h2>
+                    </div>
+                    <div class="card">
+                        <h2>Completed Tasks</h2>
+                        <h2 class="aroom">8</h2>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+
+         
+
+
+        <div id="div3">
+            
+            <form id="TaskForm" action="#" method="POST">
+                <label for="title">Task Title</label>
+                <input type="text" id="Title" required><br>
+            
+                <label for="desc">Description</label><br>
+                <textarea id="Desc" required></textarea><br>
+            
+                <label for="duedate">Due Date</label>
+                <input type="date" id="DueDate" required><br>
+            
+                <label for="priority">Priority</label>
+                <select id="Priority">
+                    <option value="high">High</option>
+                    <option value="med">Medium</option>
+                    <option value="low">Low</option>
+                </select><br>
+                <label for="completed">Completed</label>
+                <input type="checkbox" id="Completed"><br>
+                <input type="submit" value="Submit">
+                <button id="updatetask" onclick="UpdateInfoForm()">Update</button>
+            </form>
+            
+        </div>
+
+
+        <div id="div4">
+            <div class="g1">
+                <div class="filterDiv">
+                    <h2>Task Details</h2>
+                    <button onclick="sortTasks('asc')">Sort Ascending</button>
+                    <button onclick="sortTasks('desc')">Sort Descending</button>
+
+                    <select id="userRole" name="userRole" onchange="filterList()">
+                        <option value="">Categories</option>
+                        <option value=" ">Study</option>
+                        <option value=" ">Entertainment</option>
+                        <option value=" ">Fitness</option>
+                        <option value=" ">Job</option>
+                    </select>
+                </div>
+                <div id="listContainer" style="width: 100%;">
+                    <div class="infoDiv">
+                        <h4>Assignment</h4>
+                        <p>Web project 2023</p>
+                        <p>1-1-24</p>
+                        <p><i>High</i></p>
+                        <div>
+                            <button class="edit">Edit</button>
+                            <button class="delete">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                    <input type="text" placeholder="Task Title"  id="tasksearch"
+                        style="width: 60%; ">
+                    <button id="searchemp" onclick="searchTasks()"
+                        style="width: 40%; height: 100%;">Search</button>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    <script src="./adminDashboard.js"></script>
+</body>
+
+</html>

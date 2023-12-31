@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+   
+   
+    <style>
+        /* Styling to high-level elements like body and anchor tags applied here */
+        * {
+            font-family: "Poppins", sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #9cb983;
+            /* Slightly darker background */
+        }
+
+        .container {
+            position: relative;
+            width: 256px;
+            height: 256px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container span {
+            position: absolute;
+            left: 0;
+            width: 32px;
+            height: 6px;
+            background: #f0cf9e;
+            /* Darker orange tone */
+            border-radius: 8px;
+            transform-origin: 128px;
+            transform: scale(2.2) rotate(calc(var(--i) * (360deg / 50)));
+            animation: animateBlink 3s linear infinite;
+            animation-delay: calc(var(--i) * (3s / 50));
+        }
+
+        @keyframes animateBlink {
+            0% {
+                background: #FF8500;
+                /* Slightly lighter orange tone for animation */
+            }
+
+            50% {
+                background: #f0cf9e;
+            }
+        }
+
+        .signin-box {
+            position: absolute;
+            width: 380px;
+            /* Darker gray background */
+            padding: 20px;
+            border-radius: 10px;
+
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #f0cf9e;
+            /* Orange tone for headings */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            position: relative;
+            margin: 25px 0;
+
+        }
+
+        .input-box input {
+            width: 100%;
+            height: 50px;
+            background: #444444;
+            /* Darker gray input background */
+            border: 2px solid #f0cf9e;
+            outline: none;
+            border-radius: 40px;
+            font-size: 1em;
+            color: #ffffff;
+            padding: 0 20px;
+            transition: .5s ease;
+
+        }
+
+        .input-box input:focus,
+        .input-box input:valid {
+            border-color: #f0cf9e;
+        }
+
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 1em;
+            color: #ffffff;
+            pointer-events: none;
+            transition: .5s ease;
+            font-weight: 500;
+        }
+
+        .input-box input:focus~label,
+        .input-box input:valid~label {
+            top: 1px;
+            font-size: .8em;
+            background: #252525;
+            /* Darker gray label background */
+            padding: 0 6px;
+            color: #FF8500;
+        }
+
+        .btn {
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            height: 45px;
+            background: #f0cf9e;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1em;
+            color: #333333;
+            font-weight: 700;
+            margin-top: 55px;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
+        .signup-link {
+            margin: 20px 0 10px;
+            text-align: center;
+        }
+
+        .signup-link a {
+            font-size: 1em;
+            color: #252525;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+ 
+    <div class="container">
+        <div class="signin-box">
+            <h2>Signup</h2>
+            <form action="#" id="signup-form">
+                <div class="input-box">
+                    <input id="user-name" type="text" required>
+                    <label>Name</label>
+                </div>
+                <div class="input-box">
+                    <input id="user-email" type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <input id="user-password" type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="input-box">
+                    <input id="user-password" type="password" required>
+                    <label>Confirm Password</label>
+                </div>
+                <button type="submit" class="btn" onclick="registerUser()" >Signup</button>
+                <div class="signup-link">
+                    <a href="login.html">Login</a>
+                </div>
+            </form>
+            
+       
+</body>
+<script>
+    
+        async function registerUser() {
+          const name = document.getElementById('user-name').value;
+          const email = document.getElementById('user-email').value;
+          const password = document.getElementById('user-password').value;
+          const confirmPassword = document.getElementById('confirm-password').value;
+    
+          if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+          }
+    
+          const userData = { name, email, password };
+    
+          try {
+            const response = await fetch('/register', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(userData),
+            });
+    
+            if (!response.ok) {
+              throw new Error('Registration failed');
+            }
+    
+            const data = await response.json();
+            console.log('User registered successfully:', data);
+            // Optionally, you can redirect to the login page or perform other actions
+          } catch (error) {
+            console.error('Error during registration:', error);
+            // Handle the error, show an error message, etc.
+          }
+        }
+      </script>
+
+</html>
